@@ -32,7 +32,7 @@ class UntitledTestCase(unittest.TestCase):
         wd.find_element_by_name("group_header").send_keys("testing")
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys("auto-tyesting")
+        wd.find_element_by_name("group_footer").send_keys("auto-testing")
         wd.find_element_by_name("submit").click()
         wd.find_element_by_link_text("group page").click()
         wd.find_element_by_link_text("Logout").click()
