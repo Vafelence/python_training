@@ -1,21 +1,24 @@
 # -*- coding: utf-8 -*-
 import pytest
-from model.group import group
-from fixture.application import application
+from fixture.application import Application
+from model.group import Group
+
 
 @pytest.fixture
 def app(request):
-    fixture = application()
-    request.addfinalizer(fixture.Destroy)
+    fixture = Application()
+    request.addfinalizer(fixture.destroy)
     return fixture
 
+
 def test_add_group(app):
-        app.session.login(username="admin", password="secret")
-        app.create_group(group(name="test", header="testing", footer="auto-testing"))
-        app.session.logout()
+    app.session.login(username="admin", password="secret")
+    app.group.create_contact(Group(name="123", header="123", footer="123"))
+    app.session.logout()
+
 
 def test_add_empty_group(app):
-        app.session.login(username="admin", password="secret")
-        app.create_group(group(name="", header="", footer=""))
-        app.session.logout()
+    app.session.login(username="admin", password="secret")
+    app.group.create_contact(Group(name="", header="", footer=""))
+    app.session.logout()
 
