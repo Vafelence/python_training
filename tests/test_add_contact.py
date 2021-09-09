@@ -18,4 +18,3 @@ def test_create_new_contact(app):
                                        bday="15", bmonth="May", byear="1996", aday="10", amonth="June", ayear="1991",
                                        address_2="world", phone_2="7963852741", notes="abvgde"))
     app.session.logout()
-    #123
