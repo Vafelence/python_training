@@ -96,3 +96,28 @@ class ContactHelper:
         wd.find_element_by_name("notes").send_keys(contact.notes)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         wd.find_element_by_link_text("Logout").click()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        # select first group
+        wd.find_element_by_name("selected[]").click()
+        # submit deletion
+        wd.find_element_by_name("DeleteSel()").click()
+        wd.switch_to_alert().accept()
+        wd.find_element_by_link_text("home").click()
+
+    def editing_first_contact(self, contact):
+        wd = self.app.wd
+        #click button pencil
+        wd.find_element_by_title("Edit").click()
+        #editing firstname
+        wd.find_element_by_name("firstname").click()
+        wd.find_element_by_name("firstname").clear()
+        wd.find_element_by_name("firstname").send_keys(contact.firstname)
+        #click Update
+        wd.find_element_by_name("update").click()
+        #return to home page
+        wd.find_element_by_link_text("home page").click()
+
+
+
