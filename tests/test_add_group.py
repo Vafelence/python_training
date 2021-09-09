@@ -22,4 +22,4 @@ def test_add_empty_group(app):
     app.group.create_contact(Group(name="", header="", footer=""))
     app.session.logout()
 
-#123123
+#1231231w23
