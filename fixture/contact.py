@@ -106,18 +106,6 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         wd.find_element_by_link_text("home").click()
 
-    def editing_first_contact(self, contact):
-        wd = self.app.wd
-        #click button pencil
-        wd.find_element_by_title("Edit").click()
-        #editing firstname
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contact.firstname)
-        #click Update
-        wd.find_element_by_name("update").click()
-        #return to home page
-        wd.find_element_by_link_text("home page").click()
 
 
 
