@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
-from info_contact import Contact
+import unittest
+from model.info_contact import Contact
 
 class CreateContact(unittest.TestCase):
     def setUp(self):
@@ -132,6 +130,7 @@ class CreateContact(unittest.TestCase):
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys(Contact.notes)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        wd.find_element_by_link_text("Logout").click()
 
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
