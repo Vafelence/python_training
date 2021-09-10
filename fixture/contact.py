@@ -1,5 +1,5 @@
 from selenium.webdriver.support.ui import Select
-
+import webbrowser
 
 class ContactHelper:
     def __init__(self, app):
@@ -7,10 +7,13 @@ class ContactHelper:
 
     def open_contact_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home page").click()
+        if not (wd.find_element_by_title("Search for any text") and wd.find_element_by_name("add")):
+            webbrowser.open("http://localhost/addressbook/")
+            wd.find_element_by_link_text("home page").click()
 
     def create_contact(self, contact):
         wd = self.app.wd
+        self.open_contact_page()
         wd.find_element_by_link_text("add new").click()
         # add first name
         wd.find_element_by_name("firstname").click()
