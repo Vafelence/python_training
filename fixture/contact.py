@@ -10,7 +10,6 @@ class ContactHelper:
         if not (len(wd.find_elements_by_name("add")) > 0) and len(wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0:
             wd.find_element_by_link_text("home").click()
 
-
     def create_contact(self, contact):
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
