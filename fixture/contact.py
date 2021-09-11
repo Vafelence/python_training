@@ -7,7 +7,9 @@ class ContactHelper:
 
     def open_contact_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        if not (len(wd.find_elements_by_name("add")) > 0) and len(wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0:
+            wd.find_element_by_link_text("home").click()
+
 
     def create_contact(self, contact):
         wd = self.app.wd
@@ -99,6 +101,7 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
         # select first group
         wd.find_element_by_name("selected[]").click()
         # submit deletion
