@@ -57,6 +57,7 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
+        self.open_contact_page()
         # select first group
         wd.find_element_by_name("selected[]").click()
         # submit deletion
